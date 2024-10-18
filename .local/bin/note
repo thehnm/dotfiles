@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+DEFAULTNOTESPATH=$HOME/notes
+NOTESPATH=${1:-$DEFAULTNOTESPATH}
+FILEPICKER=${2:-dmenu}
+
+if [ ! -d $NOTESPATH ]; then
+    echo "NOTESPATH \"$NOTESPATH\" doesn't exist"
+    exit 1
+fi
+
+(
+  cd $NOTESPATH && note=$(find * -type f | grep -v "sync" | eval "$FILEPICKER")
+  [ -n "$note" ] && $TERMINAL -e $EDITOR "$NOTESPATH/$note"
+)

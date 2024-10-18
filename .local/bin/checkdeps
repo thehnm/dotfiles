@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+missing_programs=()
+existing_programs=()
+
+for prog in ${required_programs[@]}; do
+    if ! dpkg -s $prog &> /dev/null; then
+        missing_programs+=($prog)
+    fi
+done
+
+if [ ${#missing_programs[@]} -ge 1 ]; then
+    echo "The following programs are missing and will be installed"
+    for missing_prog in ${missing_programs[@]}; do
+        echo "* $missing_prog"
+    done
+
+    for missing_prog in ${missing_programs[@]}; do
+        if [[ $(apt-cache search --names-only $missing_prog) ]]; then
+            echo "$missing_prog exists!"
+        else
+            echo "$missing_prog doesn't exist!"
+        fi
+    done
+fi
