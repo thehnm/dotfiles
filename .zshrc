@@ -110,6 +110,7 @@ alias dgcmsg='dg commit -m'
 alias dglog='dg log'
 alias dgdiff='dg diff'
 alias dgpu='dg push'
+alias dlazygit='lazygit -g $HOME/.dotfiles -w $HOME'
 
 alias pandock='docker run --rm -v "$(pwd):/data" pandoc/core'
 
