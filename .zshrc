@@ -68,6 +68,7 @@ zstyle ':completion:*' matcher-list '' \
 local ret_status="%(?:%{$fg_bold[green]%}#:%{$fg_bold[red]%}#)"
 PROMPT='${ret_status} %{$fg[cyan]%}%c%{$reset_color%} '
 
+alias e='nvim'
 alias cp='cp -iv'
 alias df='df -h'
 alias free='free -m'
