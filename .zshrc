@@ -3,7 +3,7 @@ export NVM_DIR=$HOME/.local/nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export DOCKER_HOST=unix:///run/user/1000/docker.sock
 export GOPATH=$HOME/.local/go
-export PATH=$HOME/.local/bin:/opt/nvim-linux64/bin:/usr/local/go/bin:$PATH
+export PATH=$HOME/.local/bin:/opt/nvim-linux64/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
 export XDG_CONFIG_HOME=$HOME/.config
 export XDG_DATA_HOME=$HOME/.local/share
 export XDG_CACHE_HOME=$HOME/.cache
