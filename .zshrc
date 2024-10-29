@@ -111,6 +111,8 @@ alias dglog='dg log'
 alias dgdiff='dg diff'
 alias dgpu='dg push'
 
+alias pandock='docker run --rm -v "$(pwd):/data" pandoc/core'
+
 if [[ -d "$ZSH_CUSTOM_CONFIG_DIR" ]]; then
     for custom_config in $ZSH_CUSTOM_CONFIG_DIR/*; do
         if [[ -r "$ZSH_CUSTOM_CONFIG_DIR"/"$custom_config" ]]; then
