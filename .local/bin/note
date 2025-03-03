@@ -10,6 +10,6 @@ if [ ! -d $NOTESPATH ]; then
 fi
 
 (
-  cd $NOTESPATH && note=$(find * -type f | grep -v "sync" | eval "$FILEPICKER")
-  [ -n "$note" ] && $TERMINAL -e $EDITOR "$NOTESPATH/$note"
+    cd $NOTESPATH && notefile=$(find * -type f | grep -v "sync" | eval "$FILEPICKER")
+    [ -n "$notefile" ] && $TERMINAL -e $EDITOR "$NOTESPATH/$notefile"
 )
