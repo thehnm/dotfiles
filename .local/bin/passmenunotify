@@ -8,9 +8,9 @@ if [[ $1 == "--type" ]]; then
     shift
 fi
 
-prefix=${PASSWORD_STORE_DIR-~/.local/share/password-store}
-password_files=( "$prefix"/**/*.gpg )
-password_files=( "${password_files[@]#"$prefix"/}" )
+password_store_dir="${PASSWORD_STORE_DIR:-$HOME/.local/share/password-store}"
+password_files=( "${password_store_dir}"/**/*.gpg )
+password_files=( "${password_files[@]#"${password_store_dir}"/}" )
 password_files=( "${password_files[@]%.gpg}" )
 
 password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
@@ -18,10 +18,10 @@ password=$(printf '%s\n' "${password_files[@]}" | rofi -dmenu "$@")
 [[ -n $password ]] || exit
 
 if [[ $typeit -eq 0 ]]; then
-    pass show -c "$password" 2>/dev/null
+    PASSWORD_STORE_DIR="$password_store_dir" pass show "$password" | xclip -selection clipboard
+    notify-send "${password} copied" -u normal -t 3000
 else
-    pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
+    PASSWORD_STORE_DIR="$password_store_dir" pass show "$password" | { IFS= read -r pass; printf %s "$pass"; } |
     xdotool type --clearmodifiers --file -
+    notify-send "${password} copied" -u normal -t 3000
 fi
-
-notify-send "${password} copied" -u normal -t 3000
