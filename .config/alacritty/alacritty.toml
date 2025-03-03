@@ -1,25 +1,22 @@
+[shell]
+program = "/bin/zsh"
+args = ["-l", "-c", "tmux new-session -A -s default_session"]
+
 [window]
 padding = {x = 10, y = 10}
 opacity = 0.99
 
 [font]
-size = 14.0
-
-[font.bold]
-family = "monospace"
-style = "Bold"
-
-[font.bold_italic]
-family = "monospace"
-style = "Bold Italic"
-
-[font.italic]
-family = "monospace"
-style = "Italic"
+size = 12.0
 
 [font.normal]
-family = "monospace"
-style = "Regular"
+family = "CaskaydiaMono Nerd Font Mono"
+
+[font.bold]
+family = "CaskaydiaMono Nerd Font Mono"
+
+[font.italic]
+family = "CaskaydiaMono Nerd Font Mono"
 
 [env]
 TERM = "xterm-256color"
