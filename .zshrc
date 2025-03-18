@@ -92,6 +92,7 @@ alias tsm='transmission-remote'
 alias pr='pipenv run python'
 alias pe='source "$(pipenv --venv)/bin/activate"'
 alias vim='nvim'
+alias lazydot='lazygit -w $HOME -g $HOME/.dotfiles'
 
 # Git aliases
 alias ga='git add'
