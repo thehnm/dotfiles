@@ -1,6 +1,5 @@
 [shell]
 program = "/bin/zsh"
-args = ["-l", "-c", "tmux new-session -A -s default_session"]
 
 [window]
 padding = {x = 10, y = 10}
